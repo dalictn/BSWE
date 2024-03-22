@@ -24,16 +24,13 @@ module.exports = {
 
 
     async execute(interaction) {
-        // if (!interaction.isCommand()) return;
 
         const input = interaction.options.getString('input');
 
         const channel = interaction.options.getChannel('channel');
 
-        // const channel = client.channels.cache.get('channel');
         await interaction.deferReply({ ephemeral: true });
         await wait(1_000);
         await channel.send(input);
-        await interaction.followUp('[ Echo successful ]');
     },
 };
